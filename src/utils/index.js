@@ -17,12 +17,12 @@ exports.listFilms = async (collection) => {
 };
 
 // create function for updating db entry
-exports.editFilm = async (collection, filmObj, edits) => {
+exports.editFilm = async (collection, title, editFilm) => {
   try {
-    const editEntry = await collection.updateOne(
-      { filmObj },
-      { $set: { edits } }
-    );
+    const aTitle = { Title: title };
+    const editEntry = await collection.updateOne(title, {
+      $set: { Actor: "The Actor" },
+    });
     console.log(editEntry);
   } catch (error) {
     console.log(error);
@@ -30,7 +30,7 @@ exports.editFilm = async (collection, filmObj, edits) => {
 };
 
 // create function to delete one or more db entries
-exports.removeFilm = async (collection, filmObj) => {
+exports.removeFilm = async (filmObj) => {
   try {
     const deleteEntry = await collection.deleteOne(filmObj);
     console.log(deleteEntry);

@@ -14,15 +14,13 @@ const app = async (yargsObj) => {
     console.log("success, entry added");
   } else if (yargsObj.list) {
     await listFilms(collection);
+    // edit
   } else if (yargsObj.edit) {
-    await editFilm(
-      collection,
-      {
-        Title: yargsObj.title,
-        Actor: yargsObj.actor,
-      },
-      { $set: { Title: yargsObj.title, Actor: yargsObj.actor } }
-    );
+    await editFilm(collection, {
+      // Title: yargsObj.title,
+      // Actor: yargsObj.actor,
+    });
+    // remove
   } else if (yargsObj.delete) {
     await removeFilm(collection, {
       Title: yargsObj.title,
