@@ -20,7 +20,7 @@ exports.listFilms = async (collection) => {
 exports.editFilm = async (collection, title, editFilm) => {
   try {
     const editEntry = await collection.updateOne(title, {
-      $set: { editFilm },
+      $set: { Actor: "Taest" },
     });
     console.log(editEntry);
   } catch (error) {
