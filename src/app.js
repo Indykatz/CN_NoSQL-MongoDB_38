@@ -7,11 +7,13 @@ const { addFilm, listFilms, removeFilm, editFilm } = require("./utils/index");
 const app = async (yargsObj) => {
   const collection = await connection();
   if (yargsObj.add) {
+    // add
     await addFilm(collection, {
       Title: yargsObj.title,
       Actor: yargsObj.actor,
     });
     console.log("success, entry added");
+    // list
   } else if (yargsObj.list) {
     await listFilms(collection);
     // edit
