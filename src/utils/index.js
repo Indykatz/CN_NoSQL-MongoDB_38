@@ -19,9 +19,8 @@ exports.listFilms = async (collection) => {
 // create function for updating db entry
 exports.editFilm = async (collection, title, editFilm) => {
   try {
-    const aTitle = { Title: title };
     const editEntry = await collection.updateOne(title, {
-      $set: { Actor: "The Actor" },
+      $set: { editFilm },
     });
     console.log(editEntry);
   } catch (error) {
