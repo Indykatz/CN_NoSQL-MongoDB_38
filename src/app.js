@@ -9,8 +9,8 @@ const app = async (yargsObj) => {
   if (yargsObj.add) {
     // add
     await addFilm(collection, {
-      Title: yargsObj.title,
-      Actor: yargsObj.actor,
+      title: yargsObj.title,
+      actor: yargsObj.actor,
     });
     console.log("success, entry added");
     // list
@@ -18,15 +18,15 @@ const app = async (yargsObj) => {
     await listFilms(collection);
     // edit
   } else if (yargsObj.edit) {
-    await editFilm(collection, {
-      // Title: yargsObj.title,
-      // Actor: yargsObj.actor,
+    await editFilm(collection, yargsObj.edit, {
+      title: yargsObj.title,
+      actor: yargsObj.actor,
     });
     // remove
   } else if (yargsObj.delete) {
     await removeFilm(collection, {
-      Title: yargsObj.title,
-      Actor: yargsObj.actor,
+      title: yargsObj.title,
+      actor: yargsObj.actor,
     });
     console.log("success, entry removed");
   } else {
